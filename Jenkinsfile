@@ -8,7 +8,9 @@ node {
         }
     }
     stage('update argocd manifest') {
-            echo 'work it'
+        echo 'work it'
+        checkout([$class: 'GitSCM', branches: [[name: '*/test']], extensions: [], userRemoteConfigs: [[credentialsId: 'jzigic-pat-b', url: 'https://github.com/SlitiBrahim/flask-webapp-color-argocd']]])
+        sh 'git status'
     }
 }
 
