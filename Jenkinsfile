@@ -20,7 +20,7 @@ node {
         sh 'cat test/deploy.yaml'
         sh 'git status'
         sh "git commit -am 'Pipeline push image version ${BUILD_ID}'"
-        sh 'git push'
+        sh 'git push https://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@github.com/SlitiBrahim/flask-webapp-color-argocd.git'
     }
 }
 
