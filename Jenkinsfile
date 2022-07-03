@@ -10,7 +10,7 @@ node {
     } */
     stage('update argocd manifest') {
         echo 'work it'
-        cleanWs()
+        sh 'rm -rf *'
         //checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://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@github.com/SlitiBrahim/flask-webapp-color-argocd.git']]])
         sh 'git clone https://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@github.com/SlitiBrahim/flask-webapp-color-argocd.git'
         dir('flask-webapp-color-argocd') {
