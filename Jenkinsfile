@@ -16,9 +16,9 @@ node {
         dir('flask-webapp-color-argocd') {
             sh 'git status'
             sh 'git checkout main'
-            sh 'git config user.email "brahim.sliti15@gmail.com"'
-            sh 'git config user.name "SlitiBrahim"'
-            //sh "git config remote.origin.url 'https://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@github.com/SlitiBrahim/flask-webapp-color-argocd.git'"
+            sh 'git config --local user.email "brahim.sliti15@gmail.com"'
+            sh 'git config --local user.name "SlitiBrahim"'
+            sh "git config --local remote.origin.url 'https://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@github.com/SlitiBrahim/flask-webapp-color-argocd.git'"
             sh 'ls -lR'
             sh "sed 's/flask-webapp-color:.*/flask-webapp-color:${BUILD_ID}/' -i test/deploy.yaml"
             sh 'cat test/deploy.yaml'
