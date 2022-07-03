@@ -17,8 +17,8 @@ node {
             sh 'git config --local user.name "SlitiBrahim"'
             sh "git config --local remote.origin.url 'https://${TOKEN}@github.com/SlitiBrahim/flask-webapp-color-argocd.git'"
             sh 'ls -lR'
-            sh "sed 's/flask-webapp-color:.*/flask-webapp-color:${BUILD_ID}/' -i test/deploy.yaml"
-            sh 'cat test/deploy.yaml'
+            sh "sed 's/flask-webapp-color:.*/flask-webapp-color:${BUILD_ID}/' -i staging/deploy.yaml"
+            sh 'cat staging/deploy.yaml'
             sh 'git status'
             sh "git commit -am 'Pipeline push image version ${BUILD_ID}'"
             sh 'git push https://${TOKEN}@github.com/SlitiBrahim/flask-webapp-color-argocd.git'
