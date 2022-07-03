@@ -7,8 +7,8 @@ node {
             openshift.tag('flask-webapp-color:latest', "flask-webapp-color:${BUILD_ID}")
         }
     }
-    stage('update argocd manifest' {
+    stage('update argocd manifest') {
             echo 'work it'
-        }
     }
 }
+
