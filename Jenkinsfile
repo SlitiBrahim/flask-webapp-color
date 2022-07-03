@@ -9,7 +9,9 @@ node {
     }
     stage('update argocd manifest') {
         // clean workspace
+        sh 'ls -l'
         sh 'rm -rf *'
+        sh 'ls -l'
         withCredentials([string(credentialsId: 'PAT', variable: 'TOKEN')]) {
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://${TOKEN}@github.com/SlitiBrahim/flask-webapp-color-argocd.git']]])
             sh 'git checkout main'
@@ -19,6 +21,7 @@ node {
             sh 'ls -lR'
             sh "sed 's/flask-webapp-color:.*/flask-webapp-color:${BUILD_ID}/' -i test/deploy.yaml"
             sh 'cat test/deploy.yaml'
+            sh 'git stash'
             sh 'git pull'
             sh 'git status'
             sh "git commit -am 'Pipeline push test image version ${BUILD_ID}'"
