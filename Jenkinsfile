@@ -24,6 +24,7 @@ node {
             sh 'git status'
             sh "git commit -am 'Pipeline push image version ${BUILD_ID}'"
             sh 'git log'
+            sh 'git remote -v'
             sh 'git push https://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@github.com/SlitiBrahim/flask-webapp-color-argocd.git'
         }
     }
