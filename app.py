@@ -15,7 +15,7 @@ color_codes = {
     "darkblue": "#130f40"
 }
 
-color = 'darkblue'
+color = 'green'
 
 @app.route("/")
 def main():
