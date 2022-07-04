@@ -13,6 +13,7 @@ node {
         withCredentials([string(credentialsId: 'PAT', variable: 'TOKEN')]) {
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://${TOKEN}@github.com/SlitiBrahim/flask-webapp-color-argocd.git']]])
             sh 'git checkout main'
+            sh 'git pull'
             sh 'git config --local user.email "brahim.sliti15@gmail.com"'
             sh 'git config --local user.name "SlitiBrahim"'
             sh "git config --local remote.origin.url 'https://${TOKEN}@github.com/SlitiBrahim/flask-webapp-color-argocd.git'"
